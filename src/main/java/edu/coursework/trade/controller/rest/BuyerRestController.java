@@ -9,9 +9,7 @@ package edu.coursework.trade.controller.rest;
 */
 
 import edu.coursework.trade.model.Buyer;
-import edu.coursework.trade.model.Goods;
 import edu.coursework.trade.service.Buyer.BuyerServiceImpl;
-import edu.coursework.trade.service.goods.GoodsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

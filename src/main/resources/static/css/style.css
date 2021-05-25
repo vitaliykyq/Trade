@@ -1,0 +1,215 @@
+body{
+    font-family: 'Lato', sans-serif;
+    background: #353535;
+    color: #FFF;
+}
+
+.content{
+    padding: 10px;
+    text-align: center;
+}
+
+.content table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.content .dropItem{
+    display: none;
+}
+
+a.animated-button:link, a.animated-button:visited {
+    position: relative;
+    display: inline-block;
+    padding: 14px 15px;
+    color: #fff;
+    font-size:14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: .08em;
+    border-radius: 0;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+a.animated-button:link:after, a.animated-button:visited:after {
+    content: "";
+    position: absolute;
+    height: 0%;
+    left: 50%;
+    top: 50%;
+    width: 150%;
+    z-index: -1;
+    -webkit-transition: all 0.75s ease 0s;
+    -moz-transition: all 0.75s ease 0s;
+    -o-transition: all 0.75s ease 0s;
+    transition: all 0.75s ease 0s;
+}
+a.animated-button:link:hover, a.animated-button:visited:hover {
+    color: #FFF;
+    text-shadow: none;
+}
+a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+    height: 450%;
+}
+
+a.animated-button.victoria-one {
+    border: 2px solid #D24D57;
+}
+a.animated-button.victoria-one:after {
+    background: #D24D57;
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+    transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+}
+a.animated-button.victoria-two {
+    border: 2px solid #D24D57;
+}
+a.animated-button.victoria-two:after {
+    background: #D24D57;
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+    transform: translateX(-50%) translateY(-50%) rotate(25deg);
+}
+
+a.animated-button.sandy-two {
+    border: 2px solid #AEA8D3;
+    color: #FFF;
+    width: 250px;
+}
+a.animated-button.sandy-two:after {
+    border: 3px solid #AEA8D3;
+    opacity: 0;
+    -moz-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+    -ms-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+    -webkit-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+    transform: translateY(-50%) translateX(-50%) rotate(90deg);
+}
+a.animated-button.sandy-two:hover:after {
+    height: 600% !important;
+    opacity: 1;
+    color: #FFF;
+}
+
+a.animated-button.gibson-two {
+    border: 2px solid #65b37a;
+    color: #FFF;
+}
+a.animated-button.gibson-two:after {
+    opacity: 0;
+    background-image: -webkit-linear-gradient( transparent 50%, rgba(101,179,122,0.2) 50%);
+    background-image: -moz-linear-gradient(transparent 50%, rgba(101,179,122,0.2) 50%);
+    background-size: 10px 10px;
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+    transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+}
+a.animated-button.gibson-two:hover:after {
+    height: 600% !important;
+    opacity: 1;
+    color: #FFF;
+}
+
+.control a{
+    width: 80px;
+}
+
+.dropItem{
+    background-image: -webkit-linear-gradient( transparent 50%, #545454 50%);
+    background-image: -moz-linear-gradient(transparent 50%, #545454 50%);
+    background-size: 10px 10px;
+    padding: 20px;
+    border-radius: 40px;
+}
+
+.dropItem .block{
+    background: #353535;
+    padding: 20px 10px 10px 10px;
+    border-radius: 40px;
+}
+
+.dropItem .block table td{
+    text-align: left;
+    padding: 5px;
+    margin: 0 10px 0 10px;
+}
+
+.dropItem .block table tr{
+    border-bottom: 2px solid #666363;
+}
+
+.dropItem .block table td:first-child{
+    font-weight: bold;
+}
+
+.dropItem .block button{
+    padding: 10px;
+    width: 150px;
+    border-radius: 10px;
+    border:1px solid #1d4726;
+    background: #426e4b;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.dropItem .block button:hover{
+    padding: 10px;
+    width: 150px;
+    border-radius: 10px;
+    border:1px solid #38e15d;
+    background: #538d5f;
+    transition: .5s;
+}
+
+
+.info{
+    text-align: center;
+}
+
+.info table{
+    display: inline-block;
+}
+
+.info table td{
+    text-align: left;
+    padding: 5px 0 5px 0;
+}
+
+.info table td:first-child{
+    padding-right: 15px;
+}
+
+.info .border{
+    display: inline-block;
+    border-left: 2px;
+    border-bottom: 2px;
+    border-right: 2px;
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+
+    border-style: solid;
+    border-color: #878686;
+
+    padding: 10px;
+}
+
+
+.info label{
+    font-size: 20px;
+}
+
+.info input{
+    font-size: 20px;
+}
+
+.info select{
+    font-size: 20px;
+}

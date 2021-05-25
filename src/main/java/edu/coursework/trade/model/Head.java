@@ -25,6 +25,8 @@ public class Head {
     private String id;
 
     private Person person;
+    private double experience;
+    private String dateStart;
 
     private Date created_at;
     private Date modified_at;

@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -64,7 +65,7 @@ public class GoodsDAOImpl implements IGoodsDAO {
         String id = String.valueOf(this.getAll().stream()
                 .mapToInt(el->Integer.parseInt(el.getId()))
                 .max().orElse(0)+1);
-        goods.setCreated_at(LocalDateTime.now());
+        goods.setCreated_at(new Date());
         goods.setId(id);
         this.getAll().add(goods);
         return goods;
@@ -78,7 +79,7 @@ public class GoodsDAOImpl implements IGoodsDAO {
         updatedGoods.setAmount(goods.getAmount());
         updatedGoods.setDateOfManufacture(goods.getDateOfManufacture());
         updatedGoods.setExpirationDate(goods.getExpirationDate());
-        updatedGoods.setModified_at(LocalDateTime.now());
+        updatedGoods.setModified_at(new Date());
 
         return updatedGoods;
 

@@ -1,4 +1,4 @@
-package edu.coursework.trade.service.goods;
+package edu.coursework.trade.service.Goods;
 
 /*
     @author:    Anton

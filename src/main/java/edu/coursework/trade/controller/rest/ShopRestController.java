@@ -8,10 +8,8 @@ package edu.coursework.trade.controller.rest;
     @since:    15.04.2021     
 */
 
-import edu.coursework.trade.model.Goods;
 import edu.coursework.trade.model.Shop;
 import edu.coursework.trade.service.Shop.ShopServiceImpl;
-import edu.coursework.trade.service.goods.GoodsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
