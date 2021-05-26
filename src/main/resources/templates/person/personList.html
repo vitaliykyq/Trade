@@ -31,15 +31,11 @@
             <td th:text="${person.secondName}"></td>
             <td th:text="${person.age}"></td>
             <td th:text="${person.gender}"></td>
-            <td th:text="${person.created_at}"></td>
-            <td th:text="${person.modified_at}"></td>
+            <td th:text="${person.createdAt}"></td>
+            <td th:text="${person.modifiedAt}"></td>
             <td>
-                <a th:href="@{/ui/person/delete/{id}(id=${person.id})}">
-                    <button>Delete</button>
-                </a>
-                <a th:href="@{/ui/person/showUpdateForm/{id}(id=${person.id})}">
-                    <button>Edit</button>
-                </a>
+                <a th:href="@{/ui/person/delete/{id}(id=${person.id})}">Delete</a>
+                <a th:href="@{/ui/person/showUpdateForm/{id}(id=${person.id})}">Edit</a>
             </td>
         </tr>
         </tbody>
@@ -47,9 +43,7 @@
 
     <br>
 
-    <a th:href = "@{/ui/person/showNewForm}">
-        <button>Add</button>
-    </a>
+    <a th:href = "@{/ui/person/showNewForm}" class="btn btn-sm animated-button sandy-two">Add</a>
 </div>
 </body>
 </html>

@@ -15,19 +15,23 @@
             <table>
                 <tr>
                     <td><label for="num1">Id</label></td>
-                    <td><input id="num1" type="number" readonly th:field="*{id}"/></td>
+                    <td><input id="num1" readonly th:field="*{id}"/></td>
                 </tr>
                 <tr>
-                    <td><label for="num2">Name</label></td>
-                    <td><input id="num2" th:field="*{name}"  required></td>
+                    <td><label for="num2">FirstName</label></td>
+                    <td><input id="num2" th:field="*{firstName}"  required></td>
                 </tr>
                 <tr>
-                    <td><label for="num3">Surname</label></td>
-                    <td><input id="num3" th:field="*{surname}"  required></td>
+                    <td><label for="num3">SecondName</label></td>
+                    <td><input id="num3" th:field="*{secondName}"  required></td>
                 </tr>
                 <tr>
                     <td><label for="num4">Age</label></td>
                     <td><input id="num4" type="number" th:field="*{age}"  required></td>
+                </tr>
+                <tr>
+                    <td><label for="num5">Gender</label></td>
+                    <td><input id="num5" th:field="*{gender}"  required></td>
                 </tr>
             </table>
             <br>
@@ -35,9 +39,7 @@
             <button type="submit">DONE</button>
         </form>
 
-        <a th:href="@{/ui/person/get/all}">
-            <button>Back</button>
-        </a>
+        <a th:href="@{/ui/person/get/all}">Back</a>
     </div>
 
 

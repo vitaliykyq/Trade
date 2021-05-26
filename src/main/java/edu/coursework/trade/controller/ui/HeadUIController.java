@@ -10,8 +10,8 @@ package edu.coursework.trade.controller.ui;
 
 import edu.coursework.trade.model.Head;
 import edu.coursework.trade.model.Person;
-import edu.coursework.trade.service.Head.HeadServiceImpl;
-import edu.coursework.trade.service.Person.PersonServiceImpl;
+import edu.coursework.trade.service.Head.impls.HeadServiceImpl;
+import edu.coursework.trade.service.Person.impls.PersonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,12 +41,13 @@ public class HeadUIController {
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){
         Head head = headService.getById(id);
         model.addAttribute("head",head);
-        List<Person> personList = personService.getAll();
-        model.addAttribute("personList", personList);
+
+        List<Person> personListId = personService.getAll();
+        model.addAttribute("personListId", personListId);
         return "head/updateHead";
     }
     @PostMapping("/update")
-    public String update(Model model, @ModelAttribute("locomotive") @RequestBody Head head) {
+    public String update(Model model, @ModelAttribute("head") @RequestBody Head head) {
         head.setPerson(personService.getById(head.getPerson().getId()));
         headService.update(head);
         return "redirect:/ui/head/get/all";
@@ -56,14 +57,15 @@ public class HeadUIController {
     public String showNewLocomotiveForm(Model model) {
         Head head = new Head();
         model.addAttribute("head", head);
-        List<Person> personList = personService.getAll();
-        model.addAttribute("personList", personList);
+
+        List<Person> personListId = personService.getAll();
+        model.addAttribute("personListId", personListId);
         return "head/newHead";
     }
 
 
     @PostMapping("/add")
-    public String add(Model model, @ModelAttribute("locomotive") @RequestBody Head head) {
+    public String add(Model model, @ModelAttribute("head") @RequestBody Head head) {
 
         head.setPerson(personService.getById(head.getPerson().getId()));
         model.addAttribute("head", headService.create(head));

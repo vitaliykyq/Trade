@@ -65,7 +65,7 @@ public class GoodsDAOImpl implements IGoodsDAO {
         String id = String.valueOf(this.getAll().stream()
                 .mapToInt(el->Integer.parseInt(el.getId()))
                 .max().orElse(0)+1);
-        goods.setCreated_at(new Date());
+        goods.setCreatedAt(new Date());
         goods.setId(id);
         this.getAll().add(goods);
         return goods;
@@ -79,7 +79,7 @@ public class GoodsDAOImpl implements IGoodsDAO {
         updatedGoods.setAmount(goods.getAmount());
         updatedGoods.setDateOfManufacture(goods.getDateOfManufacture());
         updatedGoods.setExpirationDate(goods.getExpirationDate());
-        updatedGoods.setModified_at(new Date());
+        updatedGoods.setModifiedAt(new Date());
 
         return updatedGoods;
 
@@ -99,6 +99,6 @@ public class GoodsDAOImpl implements IGoodsDAO {
 
     @Override
     public List<Goods> getAll() {
-        return fakeData.getGoods();
+        return null /*fakeData.getGoods()*/;
     }
 }

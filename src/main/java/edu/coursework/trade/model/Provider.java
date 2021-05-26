@@ -11,6 +11,7 @@ package edu.coursework.trade.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -18,7 +19,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Document(collection = "provider")
 public class Provider {
 
     private String id;
@@ -28,17 +29,7 @@ public class Provider {
     private LocalDateTime finishCooperation;
     private Manager manager;
 
-    private Date created_at;
-    private Date modified_at;
+    private Date createdAt;
+    private Date modifiedAt;
     private String description;
-
-    public Provider(String id, String name, LocalDateTime startCooperation,
-                    LocalDateTime finishCooperation, Manager manager) {
-        this.id = id;
-        this.name = name;
-        this.startCooperation = startCooperation;
-        this.finishCooperation = finishCooperation;
-        this.manager = manager;
-        this.created_at = new Date();
-    }
 }

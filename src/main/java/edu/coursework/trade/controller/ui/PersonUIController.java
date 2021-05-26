@@ -9,7 +9,7 @@ package edu.coursework.trade.controller.ui;
 */
 
 import edu.coursework.trade.model.Person;
-import edu.coursework.trade.service.Person.PersonServiceImpl;
+import edu.coursework.trade.service.Person.impls.PersonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,28 +49,17 @@ public class PersonUIController {
 
     @PostMapping("/add")
     public String add(Model model, @ModelAttribute("person") @RequestBody Person person) {
-        String firstName = person.getFirstName();
-        String secondName = person.getSecondName();
-        int age = person.getAge();
-        String gender = person.getGender();
-
-        List<Person> personList = service.getAll();
-
-        if (checkValue(firstName) && checkValue(secondName) &&
-                checkValue(age) && checkValue(gender)) {
-            model.addAttribute("person", service.create(person));
-            return "redirect:/ui/person/get/all";
-        }
-        return "redirect:/ui/person/showNewForm";
+        model.addAttribute("person", service.create(person));
+        return "redirect:/ui/person/get/all";
     }
 
-    private boolean checkValue(String value){
+    /*private boolean checkValue(String value){
         return  (value.length() > 0 && value != null);
     }
 
     private boolean checkValue(int value){
         return value > 0;
-    }
+    }*/
 
     @PostMapping("/update")
     public String update(Model model, @ModelAttribute("person") @RequestBody Person person) {

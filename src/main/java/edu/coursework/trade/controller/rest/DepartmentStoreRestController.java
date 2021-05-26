@@ -9,7 +9,7 @@ package edu.coursework.trade.controller.rest;
 */
 
 import edu.coursework.trade.model.DepartmentStore;
-import edu.coursework.trade.service.DepartmentStore.DepartmentStoreServiceImpl;
+import edu.coursework.trade.service.DepartmentStore.impls.DepartmentStoreServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

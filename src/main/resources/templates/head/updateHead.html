@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Head</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link href="../../static/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="info">
+        <div class="border">
+
+            <div>
+                <h1>EDIT HEAD</h1>
+            </div>
+
+            <form id="dataMain" action="#" th:action="@{/ui/head/update}" th:object="${head}"
+                  method="POST">
+
+                <table>
+                    <tr>
+                        <td><label for="num0">Id</label></td>
+                        <td><input id="num0" readonly th:field="*{id}"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="num1">Person</label></td>
+                        <td>
+                            <div id="num1">
+                                <select th:field="*{person.id}">
+                                    <option th:each="personListId: ${personListId}"
+                                            th:value="${personListId.id}" th:text="${personListId.firstName}">ID
+                                    </option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="num2">Experience</label></td>
+                        <td><input id="num2" type="number" th:field="*{experience}"  required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="num3">DateStart</label></td>
+                        <td><input id="num3" type="number" th:field="*{dateStart}"  required></td>
+                    </tr>
+                </table>
+
+                <br><br>
+
+                <button href="#" class="btn btn-sm animated-button gibson-two" type="submit">
+                    DONE
+                </button>
+            </form>
+            <br>
+            <div>
+                <a th:href="@{/ui/head/get/all}" href="#" class="btn btn-sm animated-button sandy-two">Back</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

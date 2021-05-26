@@ -20,7 +20,7 @@ import java.util.UUID;
 @Repository
 public class FakeData {
 
-    private List<Goods> goods = new ArrayList<>(
+    /*private List<Goods> goods = new ArrayList<>(
             Arrays.asList(
                     new Goods("1", "Apple", 100, 200,
                             LocalDateTime.of(2021,2, 12, 0, 0, 0),
@@ -51,13 +51,13 @@ public class FakeData {
                             LocalDateTime.of(2021,2, 12, 0, 0, 0)),
                     new Goods("10", "Wine", 100, 200,
                             LocalDateTime.of(2021,2, 12, 0, 0, 0),
-                            LocalDateTime.of(2021,2, 12, 0, 0, 0))));
+                            LocalDateTime.of(2021,2, 12, 0, 0, 0))));*/
 
-    public List<Goods> getGoods() {
+    /*public List<Goods> getGoods() {
         return goods;
     }
 
     public void setGoods(List<Goods> goods) {
         this.goods = goods;
-    }
+    }*/
 }

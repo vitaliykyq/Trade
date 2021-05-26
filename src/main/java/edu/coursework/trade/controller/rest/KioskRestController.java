@@ -9,7 +9,7 @@ package edu.coursework.trade.controller.rest;
 */
 
 import edu.coursework.trade.model.Kiosk;
-import edu.coursework.trade.service.Kiosk.KioskServiceImpl;
+import edu.coursework.trade.service.Kiosk.impls.KioskServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

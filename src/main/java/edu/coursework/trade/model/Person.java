@@ -11,6 +11,8 @@ package edu.coursework.trade.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -19,9 +21,9 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Document(collection = "person")
 public class Person {
-
+    @Id
     private String id;
 
     private String firstName;
@@ -29,16 +31,7 @@ public class Person {
     private int age;
     private String gender;
 
-    private Date created_at;
-    private Date modified_at;
+    private Date createdAt;
+    private Date modifiedAt;
     private String description;
-
-    public Person(String id, String firstName, String secondName, int age, String gender) {
-        this.id = id;
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.age = age;
-        this.gender = gender;
-        this.created_at = new Date();
-    }
 }
