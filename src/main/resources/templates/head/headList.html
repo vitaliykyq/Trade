@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Head List</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
-    <link href="../../static/css/style.css" rel="stylesheet">
 </head>
 <body>
     <div class="content">
@@ -95,6 +94,7 @@
                     elem.style.display = "grid";
                     elem.style.position = "absolute";
                     elem.style.gridTemplateColumns = "auto auto";
+                    elem.style.zIndex = "1";
                     obj.setAttribute("data-status", "on");
                 }else{
                     document.querySelectorAll(".btnDrop").

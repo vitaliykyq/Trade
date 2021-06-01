@@ -6,7 +6,8 @@
     <link  th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
-    <div>
+    <div class="info">
+        <div class="border">
         <form action="#" th:action="@{/ui/person/update}" th:object="${person}"
               method="POST">
             <div>
@@ -36,10 +37,13 @@
             </table>
             <br>
             <br>
-            <button type="submit">DONE</button>
+            <button class="buttonYes" type="submit">DONE</button>
         </form>
 
-        <a th:href="@{/ui/person/get/all}">Back</a>
+            <br>
+
+        <a class="btn btn-sm animated-button sandy-two" th:href="@{/ui/person/get/all}">Back</a>
+    </div>
     </div>
 
 
