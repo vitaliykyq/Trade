@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Add Person</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
-    <link href="../../static/css/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="info">
@@ -34,12 +33,14 @@
             </table>
             <br>
             <br>
-            <button class="btn btn-sm animated-button gibson-two" type="submit">
+            <button class="buttonYes" type="submit">
                 SAVE
             </button>
         </form>
 
-        <a th:href="@{/ui/person/get/all}">Back</a>
+        <br>
+
+        <a class="btn btn-sm animated-button sandy-two" th:href="@{/ui/person/get/all}">Back</a>
     </div>
 </div>
 </body>

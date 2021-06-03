@@ -6,12 +6,12 @@
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
-<div>
+<div class="content">
 
     <table>
         <thead>
 
-        <tr>
+        <tr class="title">
             <th style="width: 10%">Id</th>
             <th style="width: 15%">FirstName</th>
             <th style="width: 15%">SecondName</th>
@@ -34,8 +34,8 @@
             <td th:text="${person.createdAt}"></td>
             <td th:text="${person.modifiedAt}"></td>
             <td>
-                <a th:href="@{/ui/person/delete/{id}(id=${person.id})}">Delete</a>
-                <a th:href="@{/ui/person/showUpdateForm/{id}(id=${person.id})}">Edit</a>
+                <a class="btn btn-sm animated-button victoria-two" th:href="@{/ui/person/delete/{id}(id=${person.id})}">Delete</a>
+                <a class="btn btn-sm animated-button victoria-one" th:href="@{/ui/person/showUpdateForm/{id}(id=${person.id})}">Edit</a>
             </td>
         </tr>
         </tbody>
