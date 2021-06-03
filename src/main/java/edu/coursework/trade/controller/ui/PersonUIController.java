@@ -3,7 +3,7 @@ package edu.coursework.trade.controller.ui;
 /*
     @author:    Anton
     @project:    Trade
-    @class:    BrigadeUIController
+    @class:    PersonUIController
     @version:    1.0.0 
     @since:    26.04.2021     
 */

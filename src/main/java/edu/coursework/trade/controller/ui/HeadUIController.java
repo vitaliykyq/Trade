@@ -3,7 +3,7 @@ package edu.coursework.trade.controller.ui;
 /*
     @author:    Anton
     @project:    Trade
-    @class:    LocomotiveServiceImpl
+    @class:    HeadUIController
     @version:    1.0.0 
     @since:    26.04.2021     
 */
@@ -36,7 +36,6 @@ public class HeadUIController {
         return "head/headList";
     }
 
-
     @GetMapping("/showUpdateForm/{id}")
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){
         Head head = headService.getById(id);
@@ -62,7 +61,6 @@ public class HeadUIController {
         model.addAttribute("personListId", personListId);
         return "head/newHead";
     }
-
 
     @PostMapping("/add")
     public String add(Model model, @ModelAttribute("head") @RequestBody Head head) {
