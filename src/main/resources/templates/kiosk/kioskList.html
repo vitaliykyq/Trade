@@ -2,7 +2,7 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Head List</title>
+    <title>Kiosk List</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
@@ -10,62 +10,48 @@
         <table>
             <thead>
                 <tr class="title">
-                    <th style="width: 5%">Id</th>
-                    <th style="width: 15%">Person</th>
-                    <th style="width: 10%">Experience</th>
-                    <th style="width: 20%">DateStart</th>
-                    <th style="width: 15%">CreatedAt</th>
-                    <th style="width: 15%">ModifiedAt</th>
-                    <th style="width: 20%" colspan="2">OPTIONS</th>
+                    <th>Id</th>
+                    <th>HeadList</th>
+                    <th>Manager</th>
+                    <th>SellerList</th>
+                    <th>BuyerList</th>
+                    <th>Directory</th>
+                    <th>CreatedAt</th>
+                    <th>ModifiedAt</th>
+                    <th colspan="2">OPTIONS</th>
                 </tr>
             </thead>
             <tbody>
-            <tr th:each="head: ${headList}">
-                <td th:text="${head.id}">ID</td>
+            <tr th:each="kiosk: ${kioskList}">
+                <td th:text="${kiosk.id}">ID</td>
                 <td>
-                    <a href="#" class="btn btn-sm animated-button gibson-two btnDrop" th:text="${head.person.firstName}" th:data-id="${head.id}"
-                           th:data-status="off" onclick="kl(this)">ID</a>
-
-                        <div class="dropItem" th:data-id-drop="${head.id}">
-                            <div class="block">
-                                <table>
-                                    <tr>
-                                        <td>FirstName</td>
-                                        <td th:text="${head.person.firstName}">Name</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SecondName</td>
-                                        <td th:text="${head.person.secondName}">Surname</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Age</td>
-                                        <td th:text="${head.person.age}">Age</td>
-                                    </tr>
-                                    <tr>
-                                        <td>CreatedAt</td>
-                                        <td th:text="${head.person.createdAt}">created_at</td>
-                                    </tr>
-                                    <tr>
-                                        <td>ModifiedAt</td>
-                                        <td th:text="${head.person.modifiedAt}">modified_at</td>
-                                    </tr>
-                                </table>
-
-                                <br>
-
-                                <a class="btnDropItem" th:href="@{/ui/person/get/all}">
-                                    <button class="btn btn-3">Open</button>
-                                </a>
-                            </div>
-                    </div>
+                    <ol>
+                        <li th:each="headListIds: ${kiosk.headList}">
+                            <span th:text="${headListIds.person.firstName}"></span>
+                        </li>
+                    </ol>
                 </td>
-                <td th:text="${head.experience}">Experience</td>
-                <td th:text="${head.dateStart}">DateStart</td>
-                <td th:text="${head.createdAt}">Created_at</td>
-                <td th:text="${head.modifiedAt}">Modified_at</td>
+                <td th:text="${kiosk.manager.person.firstName}">manager</td>
+                <td>
+                    <ol>
+                        <li th:each="sellerListIds: ${kiosk.sellerList}">
+                            <span th:text="${sellerListIds.person.firstName}"></span>
+                        </li>
+                    </ol>
+                </td>
+                <td>
+                    <ol>
+                        <li th:each="buyerListIds: ${kiosk.buyerList}">
+                            <span th:text="${buyerListIds.person.firstName}"></span>
+                        </li>
+                    </ol>
+                </td>
+                <td th:text="${kiosk.directory.rentalPrice}">directory</td>
+                <td th:text="${kiosk.createdAt}">Created_at</td>
+                <td th:text="${kiosk.modifiedAt}">Modified_at</td>
                 <td class="control">
-                    <a href = "#" th:href="@{/ui/head/delete/{id}(id=${head.id})}" class="btn btn-sm animated-button victoria-two">Remove</a>
-                    <a href = "#" th:href="@{/ui/head/showUpdateForm/{id}(id=${head.id})}" class="btn btn-sm animated-button victoria-one">Edit</a>
+                    <a href = "#" th:href="@{/ui/kiosk/delete/{id}(id=${kiosk.id})}" class="btn btn-sm animated-button victoria-two">Remove</a>
+                    <a href = "#" th:href="@{/ui/kiosk/showUpdateForm/{id}(id=${kiosk.id})}" class="btn btn-sm animated-button victoria-one">Edit</a>
                 </td>
             </tr>
             </tbody>
@@ -74,7 +60,7 @@
         <br>
 
             <div style="text-align: center;">
-                <a th:href = "@{/ui/head/showNewForm}" href="#" class="btn btn-sm animated-button sandy-two">Add</a>
+                <a th:href = "@{/ui/kiosk/showNewForm}" href="#" class="btn btn-sm animated-button sandy-two">Add</a>
             </div>
     </div>
     <script th:inline="javascript">

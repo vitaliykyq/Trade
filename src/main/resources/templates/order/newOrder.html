@@ -2,41 +2,41 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Head</title>
+    <title>Add Order</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
     <div class="info">
         <div class="border">
-            <form action="#" th:action="@{/ui/head/add}" th:object="${head}"
+            <form action="#" th:action="@{/ui/order/add}" th:object="${order}"
                   method="POST">
 
                 <div>
-                    <h1>ADD HEAD</h1>
+                    <h1>ADD ORDER</h1>
                 </div>
 
                 <table>
                     <tr>
+                        <td><label for="num1">OrderNumber</label></td>
+                        <td><input id="num1" type="number" th:field="*{orderNumber}"  required></td>
+                    </tr>
+                    <tr>
                         <td>
-                            <label for="num1">Person</label>
+                            <label for="num2">GoodsList</label>
                         </td>
                         <td>
-                            <div id="num1">
-                                <select th:field="*{person.id}">
-                                    <option th:each="personListId: ${personListId}"
-                                            th:value="${personListId.id}" th:text="${personListId.firstName}">ID
+                            <div id="num2">
+                                <select multiple th:field="*{goodsList}">
+                                    <option th:each="goodsListId: ${goodsListId}"
+                                            th:value="${goodsListId.id}" th:text="${goodsListId.kind}">ID
                                     </option>
                                 </select>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="num2">Experience</label></td>
-                        <td><input id="num2" type="number" th:field="*{experience}"  required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="num3">DateStart</label></td>
-                        <td><input id="num3" type="number" th:field="*{dateStart}"  required></td>
+                        <td><label for="num3">DeliveryDate</label></td>
+                        <td><input id="num3" type="number" th:field="*{deliveryDate}"  required></td>
                     </tr>
                 </table>
 
@@ -50,7 +50,7 @@
 
             <br>
             <div>
-                <a th:href="@{/ui/head/get/all}" href="#" class="btn btn-sm animated-button sandy-two">Back</a>
+                <a th:href="@{/ui/order/get/all}" href="#" class="btn btn-sm animated-button sandy-two">Back</a>
             </div>
         </div>
 

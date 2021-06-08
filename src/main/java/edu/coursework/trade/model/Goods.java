@@ -28,8 +28,8 @@ public class Goods {
     private String kind;
     private double price;
     private int amount;
-    private LocalDateTime dateOfManufacture;
-    private LocalDateTime expirationDate;
+    private String dateOfManufacture;
+    private String expirationDate;
 
     private Date createdAt;
     private Date modifiedAt;

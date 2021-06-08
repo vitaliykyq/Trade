@@ -2,7 +2,7 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Goods List</title>
+    <title>Order List</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
@@ -10,30 +10,32 @@
         <table>
             <thead>
                 <tr class="title">
-                    <th>Id</th>
-                    <th>Kind</th>
-                    <th>Price</th>
-                    <th>Amount</th>
-                    <th>DateOfManufacture</th>
-                    <th>ExpirationDate</th>
-                    <th>CreatedAt</th>
-                    <th>ModifiedAt</th>
-                    <th colspan="2">OPTIONS</th>
+                    <th style="width: 5%">Id</th>
+                    <th style="width: 15%">OrderNumber</th>
+                    <th style="width: 10%">GoodsList</th>
+                    <th style="width: 20%">DeliveryDate</th>
+                    <th style="width: 15%">CreatedAt</th>
+                    <th style="width: 15%">ModifiedAt</th>
+                    <th style="width: 20%" colspan="2">OPTIONS</th>
                 </tr>
             </thead>
             <tbody>
-            <tr th:each="goods: ${goodsList}">
-                <td th:text="${goods.id}">ID</td>
-                <td th:text="${goods.kind}">Experience</td>
-                <td th:text="${goods.price}">DateStart</td>
-                <td th:text="${goods.amount}">Experience</td>
-                <td th:text="${goods.dateOfManufacture}">DateStart</td>
-                <td th:text="${goods.expirationDate}">Experience</td>
-                <td th:text="${goods.createdAt}">Created_at</td>
-                <td th:text="${goods.modifiedAt}">Modified_at</td>
+            <tr th:each="order: ${orderList}">
+                <td th:text="${order.id}">ID</td>
+                <td th:text="${order.orderNumber}">orderNumber</td>
+                <td>
+                    <ol>
+                        <li th:each="goodsListIds: ${order.goodsList}">
+                            <span th:text="${goodsListIds.kind}"></span>
+                        </li>
+                    </ol>
+                </td>
+                <td th:text="${order.deliveryDate}">DateStart</td>
+                <td th:text="${order.createdAt}">Created_at</td>
+                <td th:text="${order.modifiedAt}">Modified_at</td>
                 <td class="control">
-                    <a href = "#" th:href="@{/ui/goods/delete/{id}(id=${goods.id})}" class="btn btn-sm animated-button victoria-two">Remove</a>
-                    <a href = "#" th:href="@{/ui/goods/showUpdateForm/{id}(id=${goods.id})}" class="btn btn-sm animated-button victoria-one">Edit</a>
+                    <a href = "#" th:href="@{/ui/order/delete/{id}(id=${order.id})}" class="btn btn-sm animated-button victoria-two">Remove</a>
+                    <a href = "#" th:href="@{/ui/order/showUpdateForm/{id}(id=${order.id})}" class="btn btn-sm animated-button victoria-one">Edit</a>
                 </td>
             </tr>
             </tbody>
@@ -42,7 +44,7 @@
         <br>
 
             <div style="text-align: center;">
-                <a th:href = "@{/ui/goods/showNewForm}" href="#" class="btn btn-sm animated-button sandy-two">Add</a>
+                <a th:href = "@{/ui/order/showNewForm}" href="#" class="btn btn-sm animated-button sandy-two">Add</a>
             </div>
     </div>
     <script th:inline="javascript">

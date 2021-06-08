@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update Head</title>
+    <title>Update Kiosk</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
@@ -10,10 +10,10 @@
         <div class="border">
 
             <div>
-                <h1>EDIT HEAD</h1>
+                <h1>EDIT KIOSK</h1>
             </div>
 
-            <form id="dataMain" action="#" th:action="@{/ui/head/update}" th:object="${head}"
+            <form id="dataMain" action="#" th:action="@{/ui/kiosk/update}" th:object="${kiosk}"
                   method="POST">
 
                 <table>
@@ -22,24 +22,74 @@
                         <td><input id="num0" readonly th:field="*{id}"/></td>
                     </tr>
                     <tr>
-                        <td><label for="num1">Person</label></td>
+                        <td>
+                            <label for="num1">HeadList</label>
+                        </td>
                         <td>
                             <div id="num1">
-                                <select th:field="*{person.id}">
-                                    <option th:each="personListId: ${personListId}"
-                                            th:value="${personListId.id}" th:text="${personListId.firstName}">ID
+                                <select multiple th:field="*{headList}">
+                                    <option th:each="headListId: ${headListId}"
+                                            th:value="${headListId.id}" th:text="${headListId.person.firstName}">ID
                                     </option>
                                 </select>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="num2">Experience</label></td>
-                        <td><input id="num2" type="number" th:field="*{experience}"  required></td>
+                        <td>
+                            <label for="num2">Manager</label>
+                        </td>
+                        <td>
+                            <div id="num2">
+                                <select th:field="*{headList}">
+                                    <option th:each="managerListId: ${managerListId}"
+                                            th:value="${managerListId.id}" th:text="${managerListId.person.firstName}">ID
+                                    </option>
+                                </select>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
-                        <td><label for="num3">DateStart</label></td>
-                        <td><input id="num3" type="number" th:field="*{dateStart}"  required></td>
+                        <td>
+                            <label for="num3">SellerList</label>
+                        </td>
+                        <td>
+                            <div id="num3">
+                                <select multiple th:field="*{sellerList}">
+                                    <option th:each="sellerListId: ${sellerListId}"
+                                            th:value="${sellerListId.id}" th:text="${sellerListId.person.firstName}">ID
+                                    </option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="num4">BuyerList</label>
+                        </td>
+                        <td>
+                            <div id="num4">
+                                <select multiple th:field="*{buyerList}">
+                                    <option th:each="buyerListId: ${buyerListId}"
+                                            th:value="${buyerListId.id}" th:text="${buyerListId.person.firstName}">ID
+                                    </option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="num5">Directory</label>
+                        </td>
+                        <td>
+                            <div id="num5">
+                                <select th:field="*{directory}">
+                                    <option th:each="directoryListId: ${directoryListId}"
+                                            th:value="${directoryListId.id}" th:text="${directoryListId.rentalPrice}">ID
+                                    </option>
+                                </select>
+                            </div>
+                        </td>
                     </tr>
                 </table>
 
@@ -51,7 +101,7 @@
             </form>
             <br>
             <div>
-                <a th:href="@{/ui/head/get/all}" href="#" class="btn btn-sm animated-button sandy-two">Back</a>
+                <a th:href="@{/ui/kiosk/get/all}" href="#" class="btn btn-sm animated-button sandy-two">Back</a>
             </div>
         </div>
     </div>

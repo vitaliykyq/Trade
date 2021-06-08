@@ -19,22 +19,22 @@
                 </tr>
             </thead>
             <tbody>
-            <tr th:each="buyerList: ${buyerList}">
-                <td th:text="${buyerList.id}">ID</td>
-                <td th:text="${buyerList.person.firstName}">Experience</td>
+            <tr th:each="buyer: ${buyerList}">
+                <td th:text="${buyer.id}">ID</td>
+                <td th:text="${buyer.person.firstName}">Experience</td>
                 <td>
                     <ol>
-                        <li th:each="purchaseListIds: ${buyerList.purchaseList}">
+                        <li th:each="purchaseListIds: ${buyer.purchaseList}">
                             <span th:text="${purchaseListIds.dateOfPurchase}"></span>
                         </li>
                     </ol>
                 </td>
-                <td th:text="${buyerList.createdAt}">CreatedAt</td>
-                <td th:text="${buyerList.modifiedAt}">ModifiedAT</td>
+                <td th:text="${buyer.createdAt}">CreatedAt</td>
+                <td th:text="${buyer.modifiedAt}">ModifiedAT</td>
 
                 <td class="control">
-                    <a href = "#" th:href="@{/ui/buyerList/delete/{id}(id=${buyerList.id})}" class="btn btn-sm animated-button victoria-two">Remove</a>
-                    <a href = "#" th:href="@{/ui/buyerList/showUpdateForm/{id}(id=${buyerList.id})}" class="btn btn-sm animated-button victoria-one">Edit</a>
+                    <a href = "#" th:href="@{/ui/buyer/delete/{id}(id=${buyer.id})}" class="btn btn-sm animated-button victoria-two">Remove</a>
+                    <a href = "#" th:href="@{/ui/buyer/showUpdateForm/{id}(id=${buyer.id})}" class="btn btn-sm animated-button victoria-one">Edit</a>
                 </td>
             </tr>
             </tbody>
@@ -43,7 +43,7 @@
         <br>
 
             <div style="text-align: center;">
-                <a th:href = "@{/ui/buyerList/showNewForm}" href="#" class="btn btn-sm animated-button sandy-two">Add</a>
+                <a th:href = "@{/ui/buyer/showNewForm}" href="#" class="btn btn-sm animated-button sandy-two">Add</a>
             </div>
     </div>
     <script th:inline="javascript">

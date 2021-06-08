@@ -2,17 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Head</title>
+    <title>Add Manager</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
     <div class="info">
         <div class="border">
-            <form action="#" th:action="@{/ui/head/add}" th:object="${head}"
+            <form action="#" th:action="@{/ui/manager/add}" th:object="${manager}"
                   method="POST">
 
                 <div>
-                    <h1>ADD HEAD</h1>
+                    <h1>ADD MANAGER</h1>
                 </div>
 
                 <table>
@@ -31,12 +31,18 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="num2">Experience</label></td>
-                        <td><input id="num2" type="number" th:field="*{experience}"  required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="num3">DateStart</label></td>
-                        <td><input id="num3" type="number" th:field="*{dateStart}"  required></td>
+                        <td>
+                            <label for="num2">OrderList</label>
+                        </td>
+                        <td>
+                            <div id="num2">
+                                <select multiple th:field="*{orderList}">
+                                    <option th:each="orderListId: ${orderListId}"
+                                            th:value="${orderListId.id}" th:text="${orderListId.orderNumber}">ID
+                                    </option>
+                                </select>
+                            </div>
+                        </td>
                     </tr>
                 </table>
 
@@ -50,7 +56,7 @@
 
             <br>
             <div>
-                <a th:href="@{/ui/head/get/all}" href="#" class="btn btn-sm animated-button sandy-two">Back</a>
+                <a th:href="@{/ui/manager/get/all}" href="#" class="btn btn-sm animated-button sandy-two">Back</a>
             </div>
         </div>
 

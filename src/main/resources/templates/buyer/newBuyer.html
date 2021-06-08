@@ -22,7 +22,7 @@
                         </td>
                         <td>
                             <div id="num1">
-                                <select th:field="*{person}">
+                                <select th:field="*{person}"   required>
                                     <option th:each="personListId: ${personListId}"
                                             th:value="${personListId.id}" th:text="${personListId.firstName}">ID
                                     </option>
@@ -34,7 +34,7 @@
                         <td><label for="num2">PurchaseList</label></td>
                         <td>
                             <div id="num2">
-                                <select th:field="*{purchaseList}">
+                                <select th:field="*{purchaseList}"   required>
                                     <option th:each="purchaseListId: ${purchaseListId}"
                                             th:value="${purchaseListId.id}" th:text="${purchaseListId.dateOfPurchase}">ID
                                     </option>

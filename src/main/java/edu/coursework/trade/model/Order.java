@@ -27,7 +27,7 @@ public class Order {
 
     private int orderNumber;
     private List<Goods> goodsList;
-    private LocalDateTime deliveryDate;
+    private String deliveryDate;
 
     private Date createdAt;
     private Date modifiedAt;

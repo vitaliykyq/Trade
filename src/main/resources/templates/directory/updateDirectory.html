@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update Head</title>
+    <title>Update Directory</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
@@ -10,10 +10,10 @@
         <div class="border">
 
             <div>
-                <h1>EDIT HEAD</h1>
+                <h1>EDIT DIRECTORY</h1>
             </div>
 
-            <form id="dataMain" action="#" th:action="@{/ui/head/update}" th:object="${head}"
+            <form id="dataMain" action="#" th:action="@{/ui/directory/update}" th:object="${directory}"
                   method="POST">
 
                 <table>
@@ -22,24 +22,58 @@
                         <td><input id="num0" readonly th:field="*{id}"/></td>
                     </tr>
                     <tr>
-                        <td><label for="num1">Person</label></td>
+                        <td>
+                            <label for="num1">GoodsList</label>
+                        </td>
                         <td>
                             <div id="num1">
-                                <select th:field="*{person.id}">
-                                    <option th:each="personListId: ${personListId}"
-                                            th:value="${personListId.id}" th:text="${personListId.firstName}">ID
+                                <select multiple th:field="*{goodsList}"  required>
+                                    <option th:each="goodsListId: ${goodsListId}"
+                                            th:value="${goodsListId.id}" th:text="${goodsListId.kind}">ID
                                     </option>
                                 </select>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="num2">Experience</label></td>
-                        <td><input id="num2" type="number" th:field="*{experience}"  required></td>
+                        <td>
+                            <label for="num2">SpoiledList</label>
+                        </td>
+                        <td>
+                            <div id="num2">
+                                <select multiple th:field="*{spoiledList}"  required>
+                                    <option th:each="goodsListId: ${goodsListId}"
+                                            th:value="${goodsListId.id}" th:text="${goodsListId.kind}">ID
+                                    </option>
+                                </select>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
-                        <td><label for="num3">DateStart</label></td>
-                        <td><input id="num3" type="number" th:field="*{dateStart}"  required></td>
+                        <td>
+                            <label for="num3">SpoiledList</label>
+                        </td>
+                        <td>
+                            <div id="num3">
+                                <select multiple th:field="*{spoiledList}"  required>
+                                    <option th:each="goodsListId: ${goodsListId}"
+                                            th:value="${goodsListId.id}" th:text="${goodsListId.kind}">ID
+                                    </option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="num4">RentalPrice</label></td>
+                        <td><input id="num4" type="number" th:field="*{rentalPrice}"  required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="num5">RetailSpace</label></td>
+                        <td><input id="num5" type="number" th:field="*{retailSpace}"  required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="num6">NumberOfCounters</label></td>
+                        <td><input id="num6" type="number" th:field="*{numberOfCounters}"  required></td>
                     </tr>
                 </table>
 
@@ -51,7 +85,7 @@
             </form>
             <br>
             <div>
-                <a th:href="@{/ui/head/get/all}" href="#" class="btn btn-sm animated-button sandy-two">Back</a>
+                <a th:href="@{/ui/directory/get/all}" href="#" class="btn btn-sm animated-button sandy-two">Back</a>
             </div>
         </div>
     </div>
