@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Head List</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="content">
+        <table>
+            <thead>
+                <tr class="title">
+                    <th style="width: 5%">Id</th>
+                    <th style="width: 15%">Head</th>
+                    <th style="width: 10%">Manager</th>
+                    <th style="width: 20%">Buyer List</th>
+                    <th style="width: 20%">Directory</th>
+                    <th style="width: 20%">Section List</th>
+                    <th style="width: 15%">CreatedAt</th>
+                    <th style="width: 15%">ModifiedAt</th>
+                    <th style="width: 20%" colspan="2">OPTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="departmentStore: ${departmentStoreList}">
+                <td th:text="${departmentStore.id}">ID</td>
+                <td>
+                    <ol>
+                        <li th:each="headListIds: ${departmentStore.headList}">
+                            <span th:text="${headListIds.person.firstName}"></span>
+                        </li>
+                    </ol>
+                </td>
+                <td th:text="${departmentStore.manager.person.firstName}">DateStart</td>
+                <td>
+                    <ol>
+                        <li th:each="buyerListIds: ${departmentStore.buyerList}">
+                            <span th:text="${buyerListIds.person.firstName}"></span>
+                        </li>
+                    </ol>
+                </td>
+                <td th:text="${departmentStore.directory.rentalPrice}">Directory</td>
+                <td>
+                    <ol>
+                        <li th:each="sectionListIds: ${departmentStore.sectionList}">
+                            <span th:text="${sectionListIds.sectionNumber}"></span>
+                        </li>
+                    </ol>
+                </td>
+                <td th:text="${departmentStore.createdAt}">Created_at</td>
+                <td th:text="${departmentStore.modifiedAt}">Modified_at</td>
+                <td class="control">
+                    <a href = "#" th:href="@{/ui/departmentStore/delete/{id}(id=${departmentStore.id})}" class="btn btn-sm animated-button victoria-two">Remove</a>
+                    <a href = "#" th:href="@{/ui/departmentStore/showUpdateForm/{id}(id=${departmentStore.id})}" class="btn btn-sm animated-button victoria-one">Edit</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br>
+
+            <div style="text-align: center;">
+                <a th:href = "@{/ui/departmentStore/showNewForm}" href="#" class="btn btn-sm animated-button sandy-two">Add</a>
+            </div>
+    </div>
+    <script th:inline="javascript">
+        let listElem = document.querySelectorAll(".dropItem");
+        function kl(obj) {
+            listElem.forEach(elem => { elem.style.display = "none";});
+
+            if(obj.getAttribute("data-status") === "on") {
+                document.querySelectorAll(".btnDrop").
+                forEach(elem => { elem.setAttribute("data-status", "off"); })
+                obj.style.borderColor = "#65b37a";
+                return;
+            }
+
+            listElem.forEach(elem => {
+                if(elem.getAttribute("data-id-drop") === obj.getAttribute("data-id")) {
+                    elem.style.display = "grid";
+                    elem.style.position = "absolute";
+                    elem.style.gridTemplateColumns = "auto auto";
+                    elem.style.zIndex = "1";
+                    obj.setAttribute("data-status", "on");
+                }else{
+                    document.querySelectorAll(".btnDrop").
+                    forEach(elem => { if(elem != obj) elem.setAttribute("data-status", "off"); })
+                }
+            })
+
+            obj.style.borderColor = "#19a48a";
+        }
+    </script>
+</body>
+</html>

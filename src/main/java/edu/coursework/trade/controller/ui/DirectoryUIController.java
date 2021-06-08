@@ -35,7 +35,7 @@ public class DirectoryUIController {
     @RequestMapping("/get/all")
     public String showAll(Model model){
         List<Directory> directoryList = directoryService.getAll();
-        model.addAttribute("headList", directoryList);
+        model.addAttribute("directoryList", directoryList);
         return "directory/directoryList";
     }
 

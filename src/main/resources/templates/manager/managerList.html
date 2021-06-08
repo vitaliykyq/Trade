@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Head List</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="content">
+        <table>
+            <thead>
+                <tr class="title">
+                    <th style="width: 5%">Id</th>
+                    <th style="width: 15%">Person</th>
+                    <th style="width: 10%">Experience</th>
+                    <th style="width: 20%">DateStart</th>
+                    <th style="width: 15%">CreatedAt</th>
+                    <th style="width: 15%">ModifiedAt</th>
+                    <th style="width: 20%" colspan="2">OPTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="head: ${headList}">
+                <td th:text="${head.id}">ID</td>
+                <td>
+                    <a href="#" class="btn btn-sm animated-button gibson-two btnDrop" th:text="${head.person.firstName}" th:data-id="${head.id}"
+                           th:data-status="off" onclick="kl(this)">ID</a>
+
+                        <div class="dropItem" th:data-id-drop="${head.id}">
+                            <div class="block">
+                                <table>
+                                    <tr>
+                                        <td>FirstName</td>
+                                        <td th:text="${head.person.firstName}">Name</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SecondName</td>
+                                        <td th:text="${head.person.secondName}">Surname</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Age</td>
+                                        <td th:text="${head.person.age}">Age</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CreatedAt</td>
+                                        <td th:text="${head.person.createdAt}">created_at</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ModifiedAt</td>
+                                        <td th:text="${head.person.modifiedAt}">modified_at</td>
+                                    </tr>
+                                </table>
+
+                                <br>
+
+                                <a class="btnDropItem" th:href="@{/ui/person/get/all}">
+                                    <button class="btn btn-3">Open</button>
+                                </a>
+                            </div>
+                    </div>
+                </td>
+                <td th:text="${head.experience}">Experience</td>
+                <td th:text="${head.dateStart}">DateStart</td>
+                <td th:text="${head.createdAt}">Created_at</td>
+                <td th:text="${head.modifiedAt}">Modified_at</td>
+                <td class="control">
+                    <a href = "#" th:href="@{/ui/head/delete/{id}(id=${head.id})}" class="btn btn-sm animated-button victoria-two">Remove</a>
+                    <a href = "#" th:href="@{/ui/head/showUpdateForm/{id}(id=${head.id})}" class="btn btn-sm animated-button victoria-one">Edit</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br>
+
+            <div style="text-align: center;">
+                <a th:href = "@{/ui/head/showNewForm}" href="#" class="btn btn-sm animated-button sandy-two">Add</a>
+            </div>
+    </div>
+    <script th:inline="javascript">
+        let listElem = document.querySelectorAll(".dropItem");
+        function kl(obj) {
+            listElem.forEach(elem => { elem.style.display = "none";});
+
+            if(obj.getAttribute("data-status") === "on") {
+                document.querySelectorAll(".btnDrop").
+                forEach(elem => { elem.setAttribute("data-status", "off"); })
+                obj.style.borderColor = "#65b37a";
+                return;
+            }
+
+            listElem.forEach(elem => {
+                if(elem.getAttribute("data-id-drop") === obj.getAttribute("data-id")) {
+                    elem.style.display = "grid";
+                    elem.style.position = "absolute";
+                    elem.style.gridTemplateColumns = "auto auto";
+                    elem.style.zIndex = "1";
+                    obj.setAttribute("data-status", "on");
+                }else{
+                    document.querySelectorAll(".btnDrop").
+                    forEach(elem => { if(elem != obj) elem.setAttribute("data-status", "off"); })
+                }
+            })
+
+            obj.style.borderColor = "#19a48a";
+        }
+    </script>
+</body>
+</html>

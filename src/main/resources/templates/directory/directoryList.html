@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Directory List</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="content">
+        <table>
+            <thead>
+                <tr class="title">
+                    <th>Id</th>
+                    <th>GoodsList</th>
+                    <th>SpoiledList</th>
+                    <th>UtilityList</th>
+                    <th>RentalPrice</th>
+                    <th>RetailSpace</th>
+                    <th>NumberOfCounters</th>
+                    <th>CreatedAt</th>
+                    <th>ModifiedAt</th>
+                    <th colspan="2">OPTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="directory: ${directoryList}">
+                <td th:text="${directory.id}">ID</td>
+                <td>
+                    <ol>
+                        <li th:each="goodsListIds: ${directory.goodsList}">
+                            <span th:text="${goodsListIds.kind}"></span>
+                        </li>
+                    </ol>
+                </td>
+                <td>
+                    <ol>
+                        <li th:each="spoiledListIds: ${directory.spoiledList}">
+                            <span th:text="${spoiledListIds.kind}"></span>
+                        </li>
+                    </ol>
+                </td>
+                <td>
+                    <ol>
+                        <li th:each="utilityListIds: ${directory.utilityList}">
+                            <span th:text="${utilityListIds.price}"></span>
+                        </li>
+                    </ol>
+                </td>
+                <td th:text="${directory.rentalPrice}">rentalPrice</td>
+                <td th:text="${directory.retailSpace}">retailSpace</td>
+                <td th:text="${directory.numberOfCounters}">numberOfCounters</td>
+                <td th:text="${directory.createdAt}">Created_at</td>
+                <td th:text="${directory.modifiedAt}">Modified_at</td>
+                <td class="control">
+                    <a href = "#" th:href="@{/ui/directory/delete/{id}(id=${directory.id})}" class="btn btn-sm animated-button victoria-two">Remove</a>
+                    <a href = "#" th:href="@{/ui/directory/showUpdateForm/{id}(id=${directory.id})}" class="btn btn-sm animated-button victoria-one">Edit</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br>
+
+            <div style="text-align: center;">
+                <a th:href = "@{/ui/directory/showNewForm}" href="#" class="btn btn-sm animated-button sandy-two">Add</a>
+            </div>
+    </div>
+    <script th:inline="javascript">
+        let listElem = document.querySelectorAll(".dropItem");
+        function kl(obj) {
+            listElem.forEach(elem => { elem.style.display = "none";});
+
+            if(obj.getAttribute("data-status") === "on") {
+                document.querySelectorAll(".btnDrop").
+                forEach(elem => { elem.setAttribute("data-status", "off"); })
+                obj.style.borderColor = "#65b37a";
+                return;
+            }
+
+            listElem.forEach(elem => {
+                if(elem.getAttribute("data-id-drop") === obj.getAttribute("data-id")) {
+                    elem.style.display = "grid";
+                    elem.style.position = "absolute";
+                    elem.style.gridTemplateColumns = "auto auto";
+                    elem.style.zIndex = "1";
+                    obj.setAttribute("data-status", "on");
+                }else{
+                    document.querySelectorAll(".btnDrop").
+                    forEach(elem => { if(elem != obj) elem.setAttribute("data-status", "off"); })
+                }
+            })
+
+            obj.style.borderColor = "#19a48a";
+        }
+    </script>
+</body>
+</html>
