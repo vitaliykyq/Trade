@@ -48,5 +48,35 @@ public class ProviderRestController {
     public Provider update(@RequestBody Provider provider){
         return service.update(provider);
     }
+    @GetMapping("/get/providerGoods/{kind}")
+    public Object getProviderGoods(@PathVariable("kind") String kind){
+        return service.getProviderGoods(kind);
+    }
 
+    @GetMapping("/get/numOfProvidersWithCertainGoods/{kind}")
+    public Object getNumOfProvidersWithCertainGoods(@PathVariable("kind") String kind){
+        return service.getNumOfProvidersWithCertainGoods(kind) ;
+    }
+
+    @GetMapping("/get/providerAmount/{amount}")
+    public Object getProviderGoodsAmount(@PathVariable("amount") int amount){
+        return service.getProviderGoodsAmount(amount);
+    }
+
+    @GetMapping("/get/numOfProviderWithCertainAmount/{amount}")
+    public Object getNumOfProvidersWithAmount(@PathVariable("amount") int amount){
+        return service.getNumOfProvidersWithAmount(amount);
+    }
+
+    @GetMapping("/get/providersWithCertainGoodsAmount/{amount}/{goods}")
+    public Object getProvidersWithCertainGoodsAmount
+            (@PathVariable("amount") int amount, @PathVariable("goods") String goods){
+        return service.getProvidersWithCertainGoodsAmount(amount, goods);
+    }
+
+    @GetMapping("/get/numOfProvidersWithCertainGoodsAmount/{amount}/{goods}")
+    public Object getNumOfProvidersWithCertainGoodsAmount
+            (@PathVariable("amount") int amount, @PathVariable("goods") String goods){
+        return service.getNumOfProvidersWithCertainGoodsAmount(amount, goods);
+    }
 }
